@@ -1,0 +1,21 @@
+.wrapper {
+  // width: 80vh;
+  // margin-left: 2vw;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  width: 60vw;
+  font-size: 20px;
+
+  .list_item {
+    width: 12vh;
+    text-align: center;
+  }
+}
