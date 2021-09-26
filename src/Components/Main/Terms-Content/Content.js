@@ -1,33 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Content.module.scss";
 import { List } from "../../termsList/ListContent";
+import { Form } from "../../Modal/Form";
+import { useSelector, useDispatch } from "react-redux";
+import { show, activeTerms } from "../../app/features/addTerms/addTermsSlice";
 
-// const obj = [
-//   {
-//     name: "meeting",
-//     data: "21.09.2021",
-//     time: "8:00 pm",
-//     type: "other",
-//     cykl: "everyday",
-//   },
-//   {
-//     name: "meeting1",
-//     data: "22.09.2021",
-//     time: "10:00 pm",
-//     type: "other2",
-//     cykl: "week",
-//   },
-// ];
+export const Content = () => {
+  // const terms = useSelector((state) => state.terms.terms);
+  const terms = useSelector(activeTerms);
 
-export const Content = ({ data }) => {
+  useEffect(() => {
+    console.log("tests");
+  }, [terms]);
+  const dispatch = useDispatch();
+  console.log(terms);
+
   return (
-    <div className={styles.wrapper}>
-      <h1>22.09.2021 środa</h1>
-      <div className={styles.terms_content}>
-        {data.map((item) => {
-          return <List item={item} />;
+    <>
+      <Form />
+      <div className={styles.wrapper}>
+        <h1>22.09.2021 środa</h1>
+        {terms.map((term) => {
+          return <List key={term.name} {...term} />;
         })}
+        <button onClick={() => dispatch(show())}>click me</button>
       </div>
-    </div>
+    </>
   );
 };

@@ -1,6 +1,6 @@
 import styles from "./App.module.scss";
-import { Header } from "../Header/Header";
-import { Main } from "../Main/Main";
+import { Header } from "./Components/Header/Header";
+import { Main } from "./Components/Main/Main";
 
 function App() {
   return (
